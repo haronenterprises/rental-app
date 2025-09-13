@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haron Enterprises, LLC - Residential Lease Application</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@formspree/core@0.8.0/dist/formspree-core.js"></script>
+    <!-- Chosen Palette: Professional Neutral -->
+    <!-- Application Structure Plan: A multi-step wizard interface is used to break the long application into manageable sections (Personal, Household, History, Financials, Documents, Submit). This guided approach reduces user fatigue and improves completion rates compared to a single, long-scrolling form. A visual progress bar provides constant feedback on the user's location within the application process. Navigation is handled by 'Next' and 'Previous' buttons, creating a clear and structured user flow. This structure was chosen to simplify a complex data-entry task. -->
+    <!-- Visualization & Content Choices: The source is a form, so the goal is data collection, not data visualization. Standard HTML form elements are used for input. Interactivity is created through JavaScript-powered conditional logic (showing/hiding 'explain' fields based on user answers) and dynamic element creation (e.g., 'Add another household member' or 'Add Employment'). This makes the form dynamic, less cluttered, and more intuitive than a static document. No charting libraries like Chart.js are needed. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            background-color: #f8f7f4; 
+            font-family: 'Inter', sans-serif;
+        }
+        @import url('https://rsms.me/inter/inter.css');
+        .form-section {
+            display: none;
+        }
+        .form-section.active {
+            display: block;
+        }
+        .step-item-active {
+            border-color: #3b82f6;
+            color: #3b82f6;
+        }
+        .step-item-complete {
+            border-color: #16a34a;
+            color: #16a34a;
+            background-color: #f0fdf4;
+        }
+        .input-field {
+            @apply w-full px-4 py-2 text-gray-700 bg-gray-50 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200;
+        }
+        .label-text {
+            @apply block text-sm font-medium text-gray-600 mb-1;
+        }
+        .radio-group {
+            @apply flex items-center gap-x-4;
+        }
+        .radio-label {
+            @apply flex items-center text-sm text-gray-700;
+        }
+        .radio-input {
+            @apply h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500;
+        }
+        .form-grid {
+            @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800">
+
+    <div class="container mx-auto px-4 py-8 md:py-12">
+        <header class="text-center mb-10">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Haron Enterprises, LLC</h1>
+            <p class="mt-2 text-lg text-gray-600">Residential ONLINE Lease Application 009</p>
+            <p class="text-sm text-gray-500">In Accordance with Seminole County NSP Rentals Program</p>
+        </header>
+
+        <div id="application-wizard" class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+            <div id="progress-bar" class="p-6 border-b border-gray-200">
+                <div class="flex items-center justify-between">
+                    <div id="step-1" class="step-item step-item-active text-center w-1/6">
+                        <div class="border-b-4 pb-2 text-xs md:text-sm font-semibold">Personal</div>
+                    </div>
+                     <div id="step-2" class="step-item text-center w-1/6">
+                        <div class="border-b-4 border-gray-200 pb-2 text-xs md:text-sm font-semibold text-gray-400">Household</div>
+                    </div>
+                     <div id="step-3" class="step-item text-center w-1/6">
+                        <div class="border-b-4 border-gray-200 pb-2 text-xs md:text-sm font-semibold text-gray-400">History</div>
+                    </div>
+                     <div id="step-4" class="step-item text-center w-1/6">
+                        <div class="border-b-4 border-gray-200 pb-2 text-xs md:text-sm font-semibold text-gray-400">Financial</div>
+                    </div>
+                     <div id="step-5" class="step-item text-center w-1/6">
+                        <div class="border-b-4 border-gray-200 pb-2 text-xs md:text-sm font-semibold text-gray-400">Documents</div>
+                    </div>
+                    <div id="step-6" class="step-item text-center w-1/6">
+                        <div class="border-b-4 border-gray-200 pb-2 text-xs md:text-sm font-semibold text-gray-400">Submit</div>
+                    </div>
+                </div>
+            </div>
+
+            <form id="rental-application-form" action="https://formspree.io/f/mpwjnbjk" method="POST" class="p-6 md:p-8">
+
+                <section id="section-1" class="form-section active">
+                    <h2 class="text-2xl font-semibold mb-2 text-gray-800">Applicant Information</h2>
+                    <p class="text-gray-600 mb-6">This first section is about you, the primary applicant. The information you provide helps us get to know you better. Please fill out all fields completely.</p>
+                    <div class="form-grid">
+                        <div><label class="label-text" for="fullName">Full Name   </label><input type="text" id="fullName" name="fullName" class="input-field" required></div>
+                        <div><label class="label-text" for="dob">Date of Birth   </label><input type="date" id="dob" name="dob" class="input-field" required></div>
+                        <div><label class="label-text" for="phone">Phone   </label><input type="tel" id="phone" name="phone" class="input-field" required></div>
+                        <div><label class="label-text" for="email">Email Address   </label><input type="email" id="email" name="email" class="input-field" required></div>
+                        <div><label class="label-text" for="ssn">Social Security Number  </label><input type="text" id="ssn" name="ssn" class="input-field" required></div>
+                        <div><label class="label-text" for="dl">Driver's License # FL  </label><input type="text" id="dl" name="dl" class="input-field" required></div>
+                        <div><label class="label-text" for="vehicleMake">Vehicle Make & Model   </label><input type="text" id="vehicleMake" name="vehicleMake" class="input-field"></div>
+                        <div><label class="label-text" for="vehicleTag">Vehicle Tag #   </label><input type="text" id="vehicleTag" name="vehicleTag" class="input-field"></div>
+                        <div class="md:col-span-2"><label class="label-text" for="relativeName">Name of Nearest Relative   </label><input type="text" id="relativeName" name="relativeName" class="input-field" required></div>
+                        <div class="md:col-span-2"><label class="label-text" for="relativePhone">Phone of Nearest Relative   </label><input type="tel" id="relativePhone" name="relativePhone" class="input-field" required></div>
+                         <div class="md:col-span-2 space-y-4">
+                            <div>
+                                <span class="label-text">Are you a member of the Armed Services?</span>
+                                <div class="radio-group mt-2">
+                                    <label class="radio-label"><input type="radio" name="armedServices" value="yes" class="radio-input mr-2">Yes</label>
+                                    <label class="radio-label"><input type="radio" name="armedServices" value="no" class="radio-input mr-2" checked>No</label>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </section>
+
+                <section id="section-2" class="form-section">
+                    <h2 class="text-2xl font-semibold mb-2 text-gray-800">Household Information</h2>
+                    <p class="text-gray-600 mb-6">In this section, please provide your current address and details about everyone who will be living in the residence. This helps us understand the composition of your household.</p>
+                     <div class="form-grid">
+                        <div class="md:col-span-2"><label class="label-text" for="streetAddress">Street Address   </label><input type="text" id="streetAddress" name="streetAddress" class="input-field" required></div>
+                        <div><label class="label-text" for="city">City   </label><input type="text" id="city" name="city" class="input-field" required></div>
+                        <div><label class="label-text" for="state">State   </label><input type="text" id="state" name="state" class="input-field" required></div>
+                        <div class="md:col-span-2"><label class="label-text" for="zip">Zip Code   </label><input type="text" id="zip" name="zip" class="input-field" required></div>
+                    </div>
+                    <div class="mt-8">
+                        <h3 class="text-lg font-semibold text-gray-700">Other Household Members</h3>
+                        <div id="household-members-container" class="mt-4 space-y-4"></div>
+                        <button type="button" id="add-member-btn" class="mt-4 text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors duration-200">+ Add Household Member</button>
+                    </div>
+                    <div class="mt-8 space-y-6">
+                        <div>
+                            <span class="label-text">Are ALL members of the household U.S. Citizens?</span>
+                             <div class="radio-group mt-2">
+                                <label class="radio-label"><input type="radio" name="usCitizen" value="yes" class="radio-input mr-2" checked onclick="toggleExplain(this, 'citizen-explain', false)">Yes</label>
+                                <label class="radio-label"><input type="radio" name="usCitizen" value="no" class="radio-input mr-2" onclick="toggleExplain(this, 'citizen-explain', false)">No</label>
+                            </div>
+                             <div id="citizen-explain" class="hidden mt-2"><label class="label-text">If no, please explain:</label><textarea class="input-field" name="usCitizenExplanation" rows="2"></textarea></div>
+                        </div>
+                         <div>
+                            <span class="label-text">Is any household member (age 18+) a full-time student?</span>
+                             <div class="radio-group mt-2">
+                                <label class="radio-label"><input type="radio" name="fullTimeStudent" value="yes" class="radio-input mr-2" onclick="toggleExplain(this, 'student-explain', true)">Yes</label>
+                                <label class="radio-label"><input type="radio" name="fullTimeStudent" value="no" class="radio-input mr-2" onclick="toggleExplain(this, 'student-explain', true)" checked>No</label>
+                            </div>
+                             <div id="student-explain" class="hidden mt-2"><label class="label-text">If yes, please list and attach school enrollment printout:</label><textarea class="input-field" name="studentExplanation" rows="2"></textarea></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="section-3" class="form-section">
+                    <h2 class="text-2xl font-semibold mb-2 text-gray-800">Background & History</h2>
+                    <p class="text-gray-600 mb-6">This section covers your rental and financial history. Please answer all questions honestly, as this information is used for standard background verification. Answering "yes" does not necessarily disqualify you.</p>
+                    <div class="space-y-6">
+                        <div class="p-4 border border-gray-200 rounded-lg">
+                            <span class="label-text">Have you ever been evicted?</span>
+                            <div class="radio-group mt-2">
+                                <label class="radio-label"><input type="radio" name="evicted" value="yes" class="radio-input mr-2" onclick="toggleExplain(this, 'evicted-explain', true)">Yes</label>
+                                <label class="radio-label"><input type="radio" name="evicted" value="no" class="radio-input mr-2" onclick="toggleExplain(this, 'evicted-explain', true)" checked>No</label>
+                            </div>
+                            <div id="evicted-explain" class="hidden mt-2"><label class="label-text">Please explain:</label><textarea class="input-field" name="evictedExplanation" rows="2"></textarea></div>
+                        </div>
+                        <div class="p-4 border border-gray-200 rounded-lg">
+                            <span class="label-text">Have you ever been foreclosed on?</span>
+                            <div class="radio-group mt-2">
+                                <label class="radio-label"><input type="radio" name="foreclosed" value="yes" class="radio-input mr-2" onclick="toggleExplain(this, 'foreclosed-explain', true)">Yes</label>
+                                <label class="radio-label"><input type="radio" name="foreclosed" value="no" class="radio-input mr-2" onclick="toggleExplain(this, 'foreclosed-explain', true)" checked>No</label>
+                            </div>
+                            <div id="foreclosed-explain" class="hidden mt-2"><label class="label-text">Please explain:</label><textarea class="input-field" name="foreclosedExplanation" rows="2"></textarea></div>
+                        </div>
+                        <div class="p-4 border border-gray-200 rounded-lg">
+                            <span class="label-text">Have you ever filed for bankruptcy?</span>
+                            <div class="radio-group mt-2">
+                                <label class="radio-label"><input type="radio" name="bankruptcy" value="yes" class="radio-input mr-2" onclick="toggleExplain(this, 'bankruptcy-explain', true)">Yes</label>
+                                <label class="radio-label"><input type="radio" name="bankruptcy" value="no" class="radio-input mr-2" onclick="toggleExplain(this, 'bankruptcy-explain', true)" checked>No</label>
+                            </div>
+                             <div id="bankruptcy-explain" class="hidden mt-2"><label class="label-text">If yes, explain:</label><textarea class="input-field" name="bankruptcyExplanation" rows="2"></textarea></div>
+                        </div>
+                        <div class="p-4 border border-gray-200 rounded-lg">
+                            <span class="label-text">Have you ever been charged with a felony?</span>
+                            <div class="radio-group mt-2">
+                                <label class="radio-label"><input type="radio" name="felony" value="yes" class="radio-input mr-2" onclick="toggleExplain(this, 'felony-explain', true)">Yes</label>
+                                <label class="radio-label"><input type="radio" name="felony" value="no" class="radio-input mr-2" onclick="toggleExplain(this, 'felony-explain', true)" checked>No</label>
+                            </div>
+                             <div id="felony-explain" class="hidden mt-2"><label class="label-text">If yes, explain:</label><textarea class="input-field" name="felonyExplanation" rows="2"></textarea></div>
+                        </div>
+                        <div class="p-4 border border-gray-200 rounded-lg">
+                            <span class="label-text">Have you ever broken a lease or refused to pay rent?</span>
+                            <div class="radio-group mt-2">
+                                <label class="radio-label"><input type="radio" name="brokenLease" value="yes" class="radio-input mr-2" onclick="toggleExplain(this, 'brokenLease-explain', true)">Yes</label>
+                                <label class="radio-label"><input type="radio" name="brokenLease" value="no" class="radio-input mr-2" onclick="toggleExplain(this, 'brokenLease-explain', true)" checked>No</label>
+                            </div>
+                             <div id="brokenLease-explain" class="hidden mt-2"><label class="label-text">If yes, explain:</label><textarea class="input-field" name="brokenLeaseExplanation" rows="2"></textarea></div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="section-4" class="form-section">
+                    <h2 class="text-2xl font-semibold mb-2 text-gray-800">Financial & Employment Information</h2>
+                     <p class="text-gray-600 mb-6">This section helps us verify your household's financial stability and ability to meet rent obligations. Please provide details on employment, income, assets, and liabilities for all adult household members.</p>
+
+                    <div class="mt-6">
+                        <h3 class="text-lg font-semibold text-gray-700">Employment History (4 years minimum)</h3>
+                        <div id="employment-container" class="mt-4 space-y-6"></div>
+                        <button type="button" id="add-employment-btn" class="mt-4 text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors duration-200">+ Add Employment</button>
+                    </div>
+
+                    <div class="mt-8">
+                        <h3 class="text-lg font-semibold text-gray-700">Other Income Sources</h3>
+                        <div id="income-container" class="mt-4 space-y-4"></div>
+                        <button type="button" id="add-income-btn" class="mt-4 text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors duration-200">+ Add Income Source</button>
+                    </div>
+
+                    <div class="mt-8">
+                        <h3 class="text-lg font-semibold text-gray-700">Assets</h3>
+                        <div id="assets-container" class="mt-4 space-y-4"></div>
+                        <button type="button" id="add-asset-btn" class="mt-4 text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors duration-200">+ Add Asset</button>
+                    </div>
+
+                    <div class="mt-8">
+                        <h3 class="text-lg font-semibold text-gray-700">Liabilities</h3>
+                        <div id="liabilities-container" class="mt-4 space-y-4"></div>
+                        <button type="button" id="add-liability-btn" class="mt-4 text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors duration-200">+ Add Liability</button>
+                    </div>
+                </section>
+
+                <section id="section-5" class="form-section">
+                    <h2 class="text-2xl font-semibold mb-2 text-gray-800">Required Documents</h2>
+                    <p class="text-gray-600 mb-6">To complete the verification process, we need you to upload several documents. You can upload multiple files for each category if needed. This is a crucial step for a complete application.</p>
+                    <div class="space-y-4">
+                        <div class="document-upload-item"><label class="label-text">Photo ID for all adult household members   </label><input type="file" name="file_PhotoID[]" class="input-field" multiple></div>
+                        <div class="document-upload-item"><label class="label-text">Social Security Cards for all household members   </label><input type="file" name="file_SocialSecurityCards[]" class="input-field" multiple></div>
+                        <div class="document-upload-item"><label class="label-text">Birth certificates for household members under 18   </label><input type="file" name="file_BirthCertificates[]" class="input-field" multiple></div>
+                        <div class="document-upload-item"><label class="label-text">Six (6) most current pay stubs   </label><input type="file" name="file_PayStubs[]" class="input-field" multiple></div>
+                        <div class="document-upload-item"><label class="label-text">Proof of last six (6) months rent/mortgage payments   </label><input type="file" name="file_RentMortgageProof[]" class="input-field" multiple></div>
+                        <div class="document-upload-item"><label class="label-text">Self-Employed: Last year's tax return & 3 months income reports   </label><input type="file" name="file_SelfEmployedDocs[]" class="input-field" multiple></div>
+                        <div class="document-upload-item"><label class="label-text">Notarized statement for adult household members with no income   </label><input type="file" name="file_NoIncomeStatement[]" class="input-field" multiple></div>
+                        <div class="document-upload-item"><label class="label-text">Letter from employer(s)</label><input type="file" name="file_EmployerLetter[]" class="input-field" multiple></div>
+                        <div class="document-upload-item"><label class="label-text">Last six (6) months of bank statements   </label><input type="file" name="file_BankStatements[]" class="input-field" multiple></div>
+                        <div class="document-upload-item"><label class="label-text">Photos of any animals that will be living on the premises   </label><input type="file" name="file_AnimalPhotos[]" class="input-field" multiple></div>
+                    </div>
+                </section>
+
+                <section id="section-6" class="form-section">
+                    <h2 class="text-2xl font-semibold mb-2 text-gray-800">Authorizations & Agreement</h2>
+                    <p class="text-gray-600 mb-6">You're almost done! Please read the following legal statements carefully. Your agreement is required to finalize and submit your application for review.</p>
+                    <div class="prose prose-sm max-w-none text-gray-600 bg-gray-50 p-4 rounded-md border border-gray-200">
+                        <p><strong>Text:</strong> I/We understand that Florida Statute 817 provides that a person is guilty of a misdemeanor in the first degree who knowingly makes a false statement in writing with the intent to mislead a landlord in repairing or leasing a dwelling unit. I CERTIFY THAT ALL THE INFORMATION PROVIDED IN THIS APPLICATION IS TRUE AND CORRECT. I, the undersigned applicant, affirm the information above is true and complete and authorize Haron Enterprises, LLC to make any and all inquiries necessary to verify said information, including but not limited to, direct contact with any person, business, or agency named above. I also understand that any false information on this application may cause this application to be rejected and may be grounds for immediate termination of the lease at the owner's option. I also agree to all the terms and conditions in the rental agreement, should this application be accepted.</p>
+                    </div>
+                    <div class="mt-6">
+                        <label class="flex items-center">
+                            <input type="checkbox" id="agree-terms" name="agreement" class="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+                            <span class="ml-3 text-gray-700">By checking this box, you attest that all information provided is true and accurate, and you agree to the terms and authorizations.</span>
+                        </label>
+                    </div>
+                     <div class="mt-8 p-4 bg-blue-50 border-l-4 border-blue-500 rounded-r-lg">
+                        <h3 class="font-semibold text-blue-800">Final Step: Application Fee</h3>
+                        <p class="text-sm text-blue-700 mt-1">A non-refundable processing fee of $50.00 is required. This fee must be paid prior to an application being accepted or processed. Upon submitting, you will be contacted with payment instructions.</p>
+                    </div>
+                </section>
+            </form>
+            
+            <div id="navigation-controls" class="p-6 bg-gray-50 border-t border-gray-200 flex justify-between items-center">
+                <button id="prev-btn" class="px-6 py-2 text-sm font-semibold text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-100 transition-colors duration-200" style="display: none;">Previous</button>
+                <div id="spacer" style="display: block;"></div>
+                <button id="next-btn" class="px-6 py-2 text-sm font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-700 transition-colors duration-200">Next</button>
+                <button id="submit-btn" class="px-6 py-2 text-sm font-semibold text-white bg-green-600 rounded-md hover:bg-green-700 transition-colors duration-200" style="display: none;">Submit Application</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let currentStep = 1;
+            const totalSteps = 6;
+            const form = document.getElementById('rental-application-form');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const submitBtn = document.getElementById('submit-btn');
+            const spacer = document.getElementById('spacer');
+            let memberCount = 0, employmentCount = 0, incomeCount = 0, assetCount = 0, liabilityCount = 0;
+
+            const updateButtons = () => {
+                prevBtn.style.display = currentStep > 1 ? 'block' : 'none';
+                spacer.style.display = currentStep === 1 ? 'block' : 'none';
+                nextBtn.style.display = currentStep < totalSteps ? 'block' : 'none';
+                submitBtn.style.display = currentStep === totalSteps ? 'block' : 'none';
+            };
+
+            const updateProgressBar = () => {
+                for (let i = 1; i <= totalSteps; i++) {
+                    const step = document.getElementById(`step-${i}`);
+                    step.classList.remove('step-item-active', 'step-item-complete');
+                    step.querySelector('div').classList.remove('border-blue-500', 'text-blue-600', 'border-green-500', 'text-green-600', 'bg-green-50');
+                    step.querySelector('div').classList.add('border-gray-200', 'text-gray-400');
+
+                    if (i < currentStep) {
+                        step.classList.add('step-item-complete');
+                        step.querySelector('div').classList.add('border-green-500', 'text-green-600');
+                    } else if (i === currentStep) {
+                        step.classList.add('step-item-active');
+                         step.querySelector('div').classList.add('border-blue-500', 'text-blue-600');
+                    }
+                }
+            };
+            
+            const showSection = (step) => {
+                document.querySelectorAll('.form-section').forEach(section => section.classList.remove('active'));
+                document.getElementById(`section-${step}`).classList.add('active');
+            };
+
+            nextBtn.addEventListener('click', () => {
+                if (currentStep < totalSteps) {
+                    currentStep++;
+                    showSection(currentStep);
+                    updateButtons();
+                    updateProgressBar();
+                    window.scrollTo(0, 0);
+                }
+            });
+
+            prevBtn.addEventListener('click', () => {
+                if (currentStep > 1) {
+                    currentStep--;
+                    showSection(currentStep);
+                    updateButtons();
+                    updateProgressBar();
+                    window.scrollTo(0, 0);
+                }
+            });
+            
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                if (!document.getElementById('agree-terms').checked) {
+                    alert('You must agree to the terms and authorizations before submitting.');
+                    return;
+                }
+                const formspree = new Formspree.Formspree('https://formspree.io/f/mpwjnbjk');
+                const formData = new FormData(form);
+                try {
+                    const response = await formspree.submit(formData);
+                    if (response.ok) {
+                        alert('Thank you for your application! It has been submitted successfully.');
+                        form.reset();
+                        currentStep = 1;
+                        showSection(1);
+                        updateButtons();
+                        updateProgressBar();
+                    } else {
+                        throw new Error('Form submission failed.');
+                    }
+                } catch (error) {
+                    alert('There was an error submitting your form. Please try again or contact us directly.');
+                }
+            });
+            
+            const createDynamicBlock = (containerId, counter, titlePrefix, innerHTMLCallback) => {
+                const container = document.getElementById(containerId);
+                let count = counter;
+                const newBlock = document.createElement('div');
+                newBlock.className = 'p-4 border border-gray-200 rounded-lg relative';
+                newBlock.innerHTML = `
+                    <button type="button" class="absolute top-2 right-2 text-red-500 hover:text-red-700" onclick="this.parentElement.remove()">&#x2715;</button>
+                    <h4 class="font-semibold mb-2 text-sm">${titlePrefix} ${count}</h4>
+                    ${innerHTMLCallback()}
+                `;
+                container.appendChild(newBlock);
+            };
+
+            document.getElementById('add-member-btn').addEventListener('click', () => {
+                memberCount++;
+                createDynamicBlock('household-members-container', memberCount, 'Member', () => `
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div><label class="label-text text-xs">Full Name</label><input type="text" name="memberFullName_${memberCount}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Age & DOB</label><input type="text" name="memberAgeDob_${memberCount}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Relationship to Applicant</label><input type="text" name="memberRelationship_${memberCount}" class="input-field text-sm"></div>
+                    </div>`);
+            });
+
+            const createEmploymentBlock = () => {
+                 employmentCount++;
+                 createDynamicBlock('employment-container', employmentCount, 'Employment Record', () => `
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div><label class="label-text text-xs">Employer Name   </label><input type="text" name="employerName_${employmentCount}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Phone Number   </label><input type="text" name="employerPhone_${employmentCount}" class="input-field text-sm"></div>
+                        <div class="md:col-span-2"><label class="label-text text-xs">Address   </label><input type="text" name="employerAddress_${employmentCount}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Position   </label><input type="text" name="employerPosition_${employmentCount}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Pay Rate ($/hr, salary)   $</label><input type="text" name="payRate_${employmentCount}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Annual Income (gross)   $</label><input type="text" name="annualIncome_${employmentCount}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Time Employed (e.g., 2 years)   </label><input type="text" name="timeEmployed_${employmentCount}" class="input-field text-sm"></div>
+                    </div>`);
+            };
+            document.getElementById('add-employment-btn').addEventListener('click', createEmploymentBlock);
+            
+            document.getElementById('add-income-btn').addEventListener('click', () => {
+                incomeCount++;
+                createDynamicBlock('income-container', incomeCount, 'Income Source', () => `
+                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div><label class="label-text text-xs">Type of Income (e.g., Alimony)   </label><input type="text" name="incomeType_${incomeCount}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Gross Annual Amount   $</label><input type="text" name="incomeAmount_${incomeCount}" class="input-field text-sm"></div>
+                     </div>`);
+            });
+
+            document.getElementById('add-asset-btn').addEventListener('click', () => {
+                assetCount++;
+                createDynamicBlock('assets-container', assetCount, 'Asset', () => `
+                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div><label class="label-text text-xs">Type of Asset   </label><input type="text" name="assetType_${assetCount}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Asset Value   $</label><input type="text" name="assetValue_${assetCount}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Interest Rate   %</label><input type="text" name="assetRate_${assetCount}" class="input-field text-sm"></div>
+                     </div>`);
+            });
+
+            document.getElementById('add-liability-btn').addEventListener('click', () => {
+                liabilityCount++;
+                createDynamicBlock('liabilities-container', liabilityCount, 'Liability', () => `
+                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                        <div><label class="label-text text-xs">Type of Credit/Loan   </label><input type="text" name="liabilityType_${liabilityCount}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Creditor's Name   </label><input type="text" name="creditorName_${liabilityCount}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Balance Owed   $</label><input type="text" name="balanceOwed_${liabilityCount}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Monthly Payment   $</label><input type="text" name="monthlyPayment_${liabilityCount}" class="input-field text-sm"></div>
+                     </div>`);
+            });
+
+            updateButtons();
+            updateProgressBar();
+            createEmploymentBlock();
+        });
+
+        function toggleExplain(radio, divId, showOnYes) {
+            const explainDiv = document.getElementById(divId);
+            const shouldShow = (radio.value === 'yes' && showOnYes) || (radio.value === 'no' && !showOnYes);
+            if (shouldShow) {
+                explainDiv.classList.remove('hidden');
+            } else {
+                explainDiv.classList.add('hidden');
+            }
+        }
+    </script>
