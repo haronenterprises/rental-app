@@ -56,7 +56,7 @@
     <div class="container mx-auto px-4 py-8 md:py-12">
         <header class="text-center mb-10">
             <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Haron Enterprises, LLC</h1>
-            <p class="mt-2 text-lg text-gray-600">Residential ONLINE Lease Application 009</p>
+            <p class="mt-2 text-lg text-gray-600">Residential Lease Application</p>
             <p class="text-sm text-gray-500">In Accordance with Seminole County NSP Rentals Program</p>
         </header>
 
@@ -85,21 +85,22 @@
             </div>
 
             <form id="rental-application-form" action="https://formspree.io/f/mpwjnbjk" method="POST" class="p-6 md:p-8">
+                 <div id="status-message" class="text-sm px-4 py-2 rounded-md mb-4 hidden" role="alert"></div>
 
                 <section id="section-1" class="form-section active">
                     <h2 class="text-2xl font-semibold mb-2 text-gray-800">Applicant Information</h2>
                     <p class="text-gray-600 mb-6">This first section is about you, the primary applicant. The information you provide helps us get to know you better. Please fill out all fields completely.</p>
                     <div class="form-grid">
-                        <div><label class="label-text" for="fullName">Full Name   </label><input type="text" id="fullName" name="fullName" class="input-field" required></div>
-                        <div><label class="label-text" for="dob">Date of Birth   </label><input type="date" id="dob" name="dob" class="input-field" required></div>
-                        <div><label class="label-text" for="phone">Phone   </label><input type="tel" id="phone" name="phone" class="input-field" required></div>
-                        <div><label class="label-text" for="email">Email Address   </label><input type="email" id="email" name="email" class="input-field" required></div>
-                        <div><label class="label-text" for="ssn">Social Security Number  </label><input type="text" id="ssn" name="ssn" class="input-field" required></div>
-                        <div><label class="label-text" for="dl">Driver's License # FL  </label><input type="text" id="dl" name="dl" class="input-field" required></div>
-                        <div><label class="label-text" for="vehicleMake">Vehicle Make & Model   </label><input type="text" id="vehicleMake" name="vehicleMake" class="input-field"></div>
-                        <div><label class="label-text" for="vehicleTag">Vehicle Tag #   </label><input type="text" id="vehicleTag" name="vehicleTag" class="input-field"></div>
-                        <div class="md:col-span-2"><label class="label-text" for="relativeName">Name of Nearest Relative   </label><input type="text" id="relativeName" name="relativeName" class="input-field" required></div>
-                        <div class="md:col-span-2"><label class="label-text" for="relativePhone">Phone of Nearest Relative   </label><input type="tel" id="relativePhone" name="relativePhone" class="input-field" required></div>
+                        <div><label class="label-text" for="fullName">Full Name</label><input type="text" id="fullName" name="fullName" class="input-field" required></div>
+                        <div><label class="label-text" for="dob">Date of Birth</label><input type="date" id="dob" name="dob" class="input-field" required></div>
+                        <div><label class="label-text" for="phone">Phone</label><input type="tel" id="phone" name="phone" class="input-field" required></div>
+                        <div><label class="label-text" for="email">Email Address</label><input type="email" id="email" name="email" class="input-field" required></div>
+                        <div><label class="label-text" for="ssn">Social Security Number</label><input type="text" id="ssn" name="ssn" class="input-field" required></div>
+                        <div><label class="label-text" for="dl">Driver's License #</label><input type="text" id="dl" name="dl" class="input-field" required></div>
+                        <div><label class="label-text" for="vehicleMake">Vehicle Make & Model</label><input type="text" id="vehicleMake" name="vehicleMake" class="input-field"></div>
+                        <div><label class="label-text" for="vehicleTag">Vehicle Tag #</label><input type="text" id="vehicleTag" name="vehicleTag" class="input-field"></div>
+                        <div class="md:col-span-2"><label class="label-text" for="relativeName">Name of Nearest Relative</label><input type="text" id="relativeName" name="relativeName" class="input-field" required></div>
+                        <div class="md:col-span-2"><label class="label-text" for="relativePhone">Phone of Nearest Relative</label><input type="tel" id="relativePhone" name="relativePhone" class="input-field" required></div>
                          <div class="md:col-span-2 space-y-4">
                             <div>
                                 <span class="label-text">Are you a member of the Armed Services?</span>
@@ -116,10 +117,10 @@
                     <h2 class="text-2xl font-semibold mb-2 text-gray-800">Household Information</h2>
                     <p class="text-gray-600 mb-6">In this section, please provide your current address and details about everyone who will be living in the residence. This helps us understand the composition of your household.</p>
                      <div class="form-grid">
-                        <div class="md:col-span-2"><label class="label-text" for="streetAddress">Street Address   </label><input type="text" id="streetAddress" name="streetAddress" class="input-field" required></div>
-                        <div><label class="label-text" for="city">City   </label><input type="text" id="city" name="city" class="input-field" required></div>
-                        <div><label class="label-text" for="state">State   </label><input type="text" id="state" name="state" class="input-field" required></div>
-                        <div class="md:col-span-2"><label class="label-text" for="zip">Zip Code   </label><input type="text" id="zip" name="zip" class="input-field" required></div>
+                        <div class="md:col-span-2"><label class="label-text" for="streetAddress">Street Address</label><input type="text" id="streetAddress" name="streetAddress" class="input-field" required></div>
+                        <div><label class="label-text" for="city">City</label><input type="text" id="city" name="city" class="input-field" required></div>
+                        <div><label class="label-text" for="state">State</label><input type="text" id="state" name="state" class="input-field" required></div>
+                        <div class="md:col-span-2"><label class="label-text" for="zip">Zip Code</label><input type="text" id="zip" name="zip" class="input-field" required></div>
                     </div>
                     <div class="mt-8">
                         <h3 class="text-lg font-semibold text-gray-700">Other Household Members</h3>
@@ -226,16 +227,16 @@
                     <h2 class="text-2xl font-semibold mb-2 text-gray-800">Required Documents</h2>
                     <p class="text-gray-600 mb-6">To complete the verification process, we need you to upload several documents. You can upload multiple files for each category if needed. This is a crucial step for a complete application.</p>
                     <div class="space-y-4">
-                        <div class="document-upload-item"><label class="label-text">Photo ID for all adult household members   </label><input type="file" name="file_PhotoID[]" class="input-field" multiple></div>
-                        <div class="document-upload-item"><label class="label-text">Social Security Cards for all household members   </label><input type="file" name="file_SocialSecurityCards[]" class="input-field" multiple></div>
-                        <div class="document-upload-item"><label class="label-text">Birth certificates for household members under 18   </label><input type="file" name="file_BirthCertificates[]" class="input-field" multiple></div>
-                        <div class="document-upload-item"><label class="label-text">Six (6) most current pay stubs   </label><input type="file" name="file_PayStubs[]" class="input-field" multiple></div>
-                        <div class="document-upload-item"><label class="label-text">Proof of last six (6) months rent/mortgage payments   </label><input type="file" name="file_RentMortgageProof[]" class="input-field" multiple></div>
-                        <div class="document-upload-item"><label class="label-text">Self-Employed: Last year's tax return & 3 months income reports   </label><input type="file" name="file_SelfEmployedDocs[]" class="input-field" multiple></div>
-                        <div class="document-upload-item"><label class="label-text">Notarized statement for adult household members with no income   </label><input type="file" name="file_NoIncomeStatement[]" class="input-field" multiple></div>
+                        <div class="document-upload-item"><label class="label-text">Photo ID for all adult household members</label><input type="file" name="file_PhotoID[]" class="input-field" multiple></div>
+                        <div class="document-upload-item"><label class="label-text">Social Security Cards for all household members</label><input type="file" name="file_SocialSecurityCards[]" class="input-field" multiple></div>
+                        <div class="document-upload-item"><label class="label-text">Birth certificates for household members under 18</label><input type="file" name="file_BirthCertificates[]" class="input-field" multiple></div>
+                        <div class="document-upload-item"><label class="label-text">Six (6) most current pay stubs</label><input type="file" name="file_PayStubs[]" class="input-field" multiple></div>
+                        <div class="document-upload-item"><label class="label-text">Proof of last six (6) months rent/mortgage payments</label><input type="file" name="file_RentMortgageProof[]" class="input-field" multiple></div>
+                        <div class="document-upload-item"><label class="label-text">Self-Employed: Last year's tax return & 3 months income reports</label><input type="file" name="file_SelfEmployedDocs[]" class="input-field" multiple></div>
+                        <div class="document-upload-item"><label class="label-text">Notarized statement for adult household members with no income</label><input type="file" name="file_NoIncomeStatement[]" class="input-field" multiple></div>
                         <div class="document-upload-item"><label class="label-text">Letter from employer(s)</label><input type="file" name="file_EmployerLetter[]" class="input-field" multiple></div>
-                        <div class="document-upload-item"><label class="label-text">Last six (6) months of bank statements   </label><input type="file" name="file_BankStatements[]" class="input-field" multiple></div>
-                        <div class="document-upload-item"><label class="label-text">Photos of any animals that will be living on the premises   </label><input type="file" name="file_AnimalPhotos[]" class="input-field" multiple></div>
+                        <div class="document-upload-item"><label class="label-text">Last six (6) months of bank statements</label><input type="file" name="file_BankStatements[]" class="input-field" multiple></div>
+                        <div class="document-upload-item"><label class="label-text">Photos of any animals that will be living on the premises</label><input type="file" name="file_AnimalPhotos[]" class="input-field" multiple></div>
                     </div>
                 </section>
 
@@ -276,6 +277,7 @@
             const nextBtn = document.getElementById('next-btn');
             const submitBtn = document.getElementById('submit-btn');
             const spacer = document.getElementById('spacer');
+            const statusMessage = document.getElementById('status-message');
             let memberCount = 0, employmentCount = 0, incomeCount = 0, assetCount = 0, liabilityCount = 0;
 
             const updateButtons = () => {
@@ -306,6 +308,16 @@
                 document.querySelectorAll('.form-section').forEach(section => section.classList.remove('active'));
                 document.getElementById(`section-${step}`).classList.add('active');
             };
+            
+            const showStatus = (message, isError = false) => {
+                statusMessage.textContent = message;
+                statusMessage.classList.remove('hidden', 'bg-red-100', 'text-red-700', 'bg-green-100', 'text-green-700');
+                if (isError) {
+                    statusMessage.classList.add('bg-red-100', 'text-red-700');
+                } else {
+                    statusMessage.classList.add('bg-green-100', 'text-green-700');
+                }
+            };
 
             nextBtn.addEventListener('click', () => {
                 if (currentStep < totalSteps) {
@@ -329,8 +341,9 @@
             
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
+                statusMessage.classList.add('hidden');
                 if (!document.getElementById('agree-terms').checked) {
-                    alert('You must agree to the terms and authorizations before submitting.');
+                    showStatus('You must agree to the terms and authorizations before submitting.', true);
                     return;
                 }
                 const formspree = new Formspree.Formspree('https://formspree.io/f/mpwjnbjk');
@@ -338,85 +351,82 @@
                 try {
                     const response = await formspree.submit(formData);
                     if (response.ok) {
-                        alert('Thank you for your application! It has been submitted successfully!');
+                        showStatus('Thank you for your application! It has been submitted successfully.');
                         form.reset();
                         currentStep = 1;
                         showSection(1);
                         updateButtons();
                         updateProgressBar();
                     } else {
-                        throw new Error('Form submission failed.');
+                        const errorData = await response.json();
+                        const errorMessage = errorData.error || 'Unknown error. Please try again or contact us directly.';
+                        showStatus(`Submission failed: ${errorMessage}`, true);
                     }
                 } catch (error) {
-                    alert('There was an error submitting your form. Please try again or contact us directly.');
+                    showStatus('There was a network error. Please check your internet connection and try again.', true);
                 }
             });
             
             const createDynamicBlock = (containerId, counter, titlePrefix, innerHTMLCallback) => {
                 const container = document.getElementById(containerId);
-                let count = counter;
+                let count = container.childElementCount + 1;
                 const newBlock = document.createElement('div');
                 newBlock.className = 'p-4 border border-gray-200 rounded-lg relative';
                 newBlock.innerHTML = `
                     <button type="button" class="absolute top-2 right-2 text-red-500 hover:text-red-700" onclick="this.parentElement.remove()">&#x2715;</button>
                     <h4 class="font-semibold mb-2 text-sm">${titlePrefix} ${count}</h4>
-                    ${innerHTMLCallback()}
+                    ${innerHTMLCallback(count)}
                 `;
                 container.appendChild(newBlock);
             };
 
             document.getElementById('add-member-btn').addEventListener('click', () => {
-                memberCount++;
-                createDynamicBlock('household-members-container', memberCount, 'Member', () => `
+                createDynamicBlock('household-members-container', 0, 'Member', (count) => `
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div><label class="label-text text-xs">Full Name</label><input type="text" name="memberFullName_${memberCount}" class="input-field text-sm"></div>
-                        <div><label class="label-text text-xs">Age & DOB</label><input type="text" name="memberAgeDob_${memberCount}" class="input-field text-sm"></div>
-                        <div><label class="label-text text-xs">Relationship to Applicant</label><input type="text" name="memberRelationship_${memberCount}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Full Name</label><input type="text" name="memberFullName_${count}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Age & DOB</label><input type="text" name="memberAgeDob_${count}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Relationship to Applicant</label><input type="text" name="memberRelationship_${count}" class="input-field text-sm"></div>
                     </div>`);
             });
 
             const createEmploymentBlock = () => {
-                 employmentCount++;
-                 createDynamicBlock('employment-container', employmentCount, 'Employment Record', () => `
+                 createDynamicBlock('employment-container', 0, 'Employment Record', (count) => `
                      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div><label class="label-text text-xs">Employer Name   </label><input type="text" name="employerName_${employmentCount}" class="input-field text-sm"></div>
-                        <div><label class="label-text text-xs">Phone Number   </label><input type="text" name="employerPhone_${employmentCount}" class="input-field text-sm"></div>
-                        <div class="md:col-span-2"><label class="label-text text-xs">Address   </label><input type="text" name="employerAddress_${employmentCount}" class="input-field text-sm"></div>
-                        <div><label class="label-text text-xs">Position   </label><input type="text" name="employerPosition_${employmentCount}" class="input-field text-sm"></div>
-                        <div><label class="label-text text-xs">Pay Rate ($/hr, salary)   $</label><input type="text" name="payRate_${employmentCount}" class="input-field text-sm"></div>
-                        <div><label class="label-text text-xs">Annual Income (gross)   $</label><input type="text" name="annualIncome_${employmentCount}" class="input-field text-sm"></div>
-                        <div><label class="label-text text-xs">Time Employed (e.g., 2 years)   </label><input type="text" name="timeEmployed_${employmentCount}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Employer Name</label><input type="text" name="employerName_${count}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Phone Number</label><input type="text" name="employerPhone_${count}" class="input-field text-sm"></div>
+                        <div class="md:col-span-2"><label class="label-text text-xs">Address</label><input type="text" name="employerAddress_${count}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Position</label><input type="text" name="employerPosition_${count}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Pay Rate ($/hr, salary)</label><input type="text" name="payRate_${count}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Annual Income (gross)</label><input type="text" name="annualIncome_${count}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Time Employed (e.g., 2 years)</label><input type="text" name="timeEmployed_${count}" class="input-field text-sm"></div>
                     </div>`);
             };
             document.getElementById('add-employment-btn').addEventListener('click', createEmploymentBlock);
             
             document.getElementById('add-income-btn').addEventListener('click', () => {
-                incomeCount++;
-                createDynamicBlock('income-container', incomeCount, 'Income Source', () => `
+                createDynamicBlock('income-container', 0, 'Income Source', (count) => `
                      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div><label class="label-text text-xs">Type of Income (e.g., Alimony)   </label><input type="text" name="incomeType_${incomeCount}" class="input-field text-sm"></div>
-                        <div><label class="label-text text-xs">Gross Annual Amount   $</label><input type="text" name="incomeAmount_${incomeCount}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Type of Income (e.g., Alimony)</label><input type="text" name="incomeType_${count}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Gross Annual Amount</label><input type="text" name="incomeAmount_${count}" class="input-field text-sm"></div>
                      </div>`);
             });
 
             document.getElementById('add-asset-btn').addEventListener('click', () => {
-                assetCount++;
-                createDynamicBlock('assets-container', assetCount, 'Asset', () => `
+                createDynamicBlock('assets-container', 0, 'Asset', (count) => `
                      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div><label class="label-text text-xs">Type of Asset   </label><input type="text" name="assetType_${assetCount}" class="input-field text-sm"></div>
-                        <div><label class="label-text text-xs">Asset Value   $</label><input type="text" name="assetValue_${assetCount}" class="input-field text-sm"></div>
-                        <div><label class="label-text text-xs">Interest Rate   %</label><input type="text" name="assetRate_${assetCount}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Type of Asset</label><input type="text" name="assetType_${count}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Asset Value</label><input type="text" name="assetValue_${count}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Interest Rate</label><input type="text" name="assetRate_${count}" class="input-field text-sm"></div>
                      </div>`);
             });
 
             document.getElementById('add-liability-btn').addEventListener('click', () => {
-                liabilityCount++;
-                createDynamicBlock('liabilities-container', liabilityCount, 'Liability', () => `
+                createDynamicBlock('liabilities-container', 0, 'Liability', (count) => `
                      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                        <div><label class="label-text text-xs">Type of Credit/Loan   </label><input type="text" name="liabilityType_${liabilityCount}" class="input-field text-sm"></div>
-                        <div><label class="label-text text-xs">Creditor's Name   </label><input type="text" name="creditorName_${liabilityCount}" class="input-field text-sm"></div>
-                        <div><label class="label-text text-xs">Balance Owed   $</label><input type="text" name="balanceOwed_${liabilityCount}" class="input-field text-sm"></div>
-                        <div><label class="label-text text-xs">Monthly Payment   $</label><input type="text" name="monthlyPayment_${liabilityCount}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Type of Credit/Loan</label><input type="text" name="liabilityType_${count}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Creditor's Name</label><input type="text" name="creditorName_${count}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Balance Owed</label><input type="text" name="balanceOwed_${count}" class="input-field text-sm"></div>
+                        <div><label class="label-text text-xs">Monthly Payment</label><input type="text" name="monthlyPayment_${count}" class="input-field text-sm"></div>
                      </div>`);
             });
 
@@ -435,4 +445,7 @@
             }
         }
     </script>
+</body>
+</html>
+
 
