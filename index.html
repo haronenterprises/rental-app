@@ -338,7 +338,7 @@
                 try {
                     const response = await formspree.submit(formData);
                     if (response.ok) {
-                        alert('Thank you for your application! It has been submitted successfully.');
+                        alert('Thank you for your application! It has been submitted successfully!');
                         form.reset();
                         currentStep = 1;
                         showSection(1);
@@ -435,3 +435,4 @@
             }
         }
     </script>
+
